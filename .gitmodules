@@ -1,0 +1,6 @@
+[submodule "lua"]
+	path = src.lua
+	url = https://github.com/qlua-project/lua
+[submodule "luac"]
+	path = src.luac
+	url = https://github.com/qlua-project/luac

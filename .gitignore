@@ -1,0 +1,6 @@
+cmake-build-debug-x64
+cmake-build-release-x64
+
+/bin
+/lib
+/includes

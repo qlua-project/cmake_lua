@@ -11,7 +11,7 @@ on:
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
-  GENERATOR: "NMake Makefiles"
+  GENERATOR: NMake Makefiles
 
 jobs:
   build:
@@ -27,12 +27,12 @@ jobs:
       id: strings
       shell: bash
       run: |
-        BUILD_TYPE=${{env.BUILD_TYPE}}; echo "build-output-dir=${{github.workspace}}/cmake-build-${BUILD_TYPE,,}-${{env.RUNNER_ARCH}}" >> "$GITHUB_OUTPUT"
+        BUILD_TYPE=${{env.BUILD_TYPE}}; echo "build-output-dir=${{github.workspace}}/cmake-build-${BUILD_TYPE,,}-${{runner.arch}}" >> "$GITHUB_OUTPUT"
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -G ${{env.GENERATOR}} -B ${{steps.strings.outputs.build-output-dir}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} --install-prefix ${{github.workspace}} -Wdev --warn-uninitialized --log-context -L
+      run: cmake -G "${{env.GENERATOR}}" -B ${{steps.strings.outputs.build-output-dir}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} --install-prefix ${{github.workspace}} -Wdev --warn-uninitialized --log-context -L
 
     - name: Build
       # Build your program with the given configuration

@@ -2,9 +2,9 @@ name: CMake on a single platform
 
 on:
   push:
-    branches: [ "v5.4.1" ]
+    branches: [ "v5.4.1", "v5.3.5" ]
   pull_request:
-    branches: [ "v5.4.1" ]
+    branches: [ "v5.4.1", "v5.3.5" ]
 
 env:
   BUILD_TYPE: Release

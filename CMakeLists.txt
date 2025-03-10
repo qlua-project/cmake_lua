@@ -4,12 +4,6 @@ set ( CMAKE_C_STANDARD 99 )
 set ( CMAKE_C_STANDARD_REQUIRED True )
 include( version.cmake )
 
-include ( CMakePrintSystemInformation )
-include ( CMakePrintHelpers )
-cmake_print_variables (
-  CMAKE_CURRENT_SOURCE_DIR
-  )
-
 add_compile_options( /W4 )  # -Wall
 
 set(CMAKE_BUILD_TYPE "Release" CACHE STRING "")

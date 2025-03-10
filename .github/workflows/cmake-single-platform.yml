@@ -38,7 +38,7 @@ jobs:
         cmake -G "${{env.GENERATOR}}" -B "${{steps.strings.outputs.build-output-dir}}" --install-prefix "${{github.workspace}}" -Wdev --warn-uninitialized --log-context -L
           -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
           -DCMAKE_CXX_COMPILER=${{ env.cpp_compiler }}
-          -DCMAKE_C_COMPILER=${{ enc.c_compiler }}
+          -DCMAKE_C_COMPILER=${{ env.c_compiler }}
 
     - name: Build
       # Build your program with the given configuration

@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "v5.4.1", "v5.3.5" ]
 
+defaults:
+  run:
+    working-directory: cmake_lua
+
 jobs:
   build:
     runs-on: windows-latest

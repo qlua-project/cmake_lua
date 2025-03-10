@@ -68,5 +68,5 @@ jobs:
     
     - name: Zip
       shell: powershell
-      run: Compress-Archive -Path bin,include,lib,src.lua\README.txt -Destination artifact.zip
+      run: Compress-Archive -Path bin,include,lib,README.txt -Destination artifact.zip
 

@@ -47,9 +47,9 @@ jobs:
     #   run: ctest -C ${{env.BUILD_TYPE}}
 
     - name: Copy Files
-      shell: bash
+      shell: powershell
       run: |
-        cp -a src.lua/README.txt ${{github.workspace}}/output
+        Copy-Item -Path "src.lua/README.txt" -Destination "${{github.workspace}}/output"
 
     - uses: actions/upload-artifact@v4
       with:

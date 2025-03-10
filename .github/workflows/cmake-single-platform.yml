@@ -57,6 +57,11 @@ jobs:
     - name: Install
       # Build your program with the given configuration
       run: cmake --install ${{steps.strings.outputs.build-output-dir}}
+
+    - name: Zip
+      shell: bash
+      run: |
+        zip --junk-paths bin lib include src.lua/README.txt
           
     # - name: Test
     #   working-directory: ${{github.workspace}}/build

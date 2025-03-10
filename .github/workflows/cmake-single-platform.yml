@@ -53,6 +53,10 @@ jobs:
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{steps.strings.outputs.build-output-dir}} --config ${{env.BUILD_TYPE}}
+
+    - name: Install
+      # Build your program with the given configuration
+      run: cmake --install ${{steps.strings.outputs.build-output-dir}}
           
     # - name: Test
     #   working-directory: ${{github.workspace}}/build

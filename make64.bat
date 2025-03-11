@@ -32,6 +32,7 @@ if /I "%1"=="/DEBUG" (
     if /I "%1" == "/DELETE" goto DELETE
     if /I "%1" == "" set _CONFIGBUILD=yes
 )
+set INSTALL_DIR=%~dp0
 
 pushd %~dp0
 
@@ -41,7 +42,7 @@ if NOT "%_CONFIGBUILD%" == "" echo - - - - - - - - - - - - - - - - - - - -
 :: -Wdev Enable developer warnings that are meant for the author of the CMakeLists.txt files.
 :: -L This will effectively display current CMake settings.
 :: --log-context message() command outputting context attached to each message
-cmake -G "NMake Makefiles" -B "%cmake_build_dir%" --install-prefix "%CD%" -Wdev --warn-uninitialized --log-context -L
+cmake -G "NMake Makefiles" -B "%cmake_build_dir%" --install-prefix "%INSTALL_DIR:~0,-1%" -Wdev --warn-uninitialized --log-context -L
 
 if ERRORLEVEL==1 goto END
 if NOT "%_CONFIGBUILD%" == "" goto BUILD

@@ -1,6 +1,7 @@
 @echo off
-setlocal
+if /I NOT "%1" == "/ENV" setlocal
 call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat"
+if /I "%1" == "/ENV" goto EOF
 
 set "_CONFIGBUILD="
 
@@ -82,5 +83,9 @@ goto END
 dumpbin64.bat %cmake_build_dir%
 
 :END
-endlocal
 popd
+
+:ENDLOCAL
+endlocal
+
+:EOF

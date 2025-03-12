@@ -42,7 +42,7 @@ if NOT "%_CONFIGBUILD%" == "" echo - - - - - - - - - - - - - - - - - - - -
 :: -Wdev Enable developer warnings that are meant for the author of the CMakeLists.txt files.
 :: -L This will effectively display current CMake settings.
 :: --log-context message() command outputting context attached to each message
-cmake -G "NMake Makefiles" -B "%cmake_build_dir%" --install-prefix "%INSTALL_DIR:~0,-1%" -Wdev --warn-uninitialized --log-context -L
+cmake -G "NMake Makefiles" -Wdev --warn-uninitialized --log-context -L -B "%cmake_build_dir%" --install-prefix "%INSTALL_DIR:~0,-1%"
 
 if ERRORLEVEL==1 goto END
 if NOT "%_CONFIGBUILD%" == "" goto BUILD

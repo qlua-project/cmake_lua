@@ -2,6 +2,7 @@ cmake_minimum_required ( VERSION 3.30 )
 project ( lua C )
 set ( CMAKE_C_STANDARD 99 )
 set ( CMAKE_C_STANDARD_REQUIRED True )
+include( version.cmake )
 
 add_compile_options( /W4 )  # -Wall
 
@@ -10,8 +11,7 @@ set(CMAKE_BUILD_TYPE "Release" CACHE STRING "")
 set ( LUA_DIR src.lua CACHE PATH "Where to search Lua sources." )
 set ( LUAC_DIR src.luac CACHE PATH "Where to search Luac sources." )
 
-set ( LUA_INCLUDE_DIR ${LUA_DIR} )  # lua.h location
-find_package( Lua QUIET )  # LUA_VERSION_MAJOR LUA_VERSION_MINOR
+lua_get_header_version( ${LUA_DIR} )
 
 # see makefile
 set ( SRC_CORE lapi.c lcode.c lctype.c ldebug.c ldo.c ldump.c lfunc.c lgc.c llex.c

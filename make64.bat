@@ -71,7 +71,7 @@ cmake -G "NMake Makefiles" --system-information "cmake-build-sysinfo.txt"
 goto END
 
 :CLEAN
-del /Q %cmake_build_dir%\CMakeCache.txt"
+call del /Q %cmake_build_dir%\CMakeCache.txt"
 
 goto END
 

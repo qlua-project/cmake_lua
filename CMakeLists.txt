@@ -43,9 +43,9 @@ set_target_properties ( libluadll PROPERTIES OUTPUT_NAME "lua${LUA_VERSION_MAJOR
 add_executable ( lua ${SRC_LUA} )
 target_link_libraries ( lua PRIVATE libluadll )
 
-add_executable ( luac ${SRC_LUAC} ${SRC_CORE} ${SRC_AUX} )
+# add_executable ( luac ${SRC_LUAC} ${SRC_CORE} ${SRC_AUX} )  # fatal error
 
 install( TARGETS lua RUNTIME )
-install( TARGETS luac RUNTIME )
+# install( TARGETS luac RUNTIME )
 install( TARGETS libluadll RUNTIME )
 install( TARGETS libluadll FILE_SET publicheaders )
